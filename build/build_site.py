@@ -10,7 +10,7 @@ from web_css import CSS
 from libro_data import build
 from capitulos import CAP, TITULOS
 
-SITE = os.path.join(S, 'site'); os.makedirs(os.path.join(SITE, 'img'), exist_ok=True)
+SITE = os.path.join(S, 'docs'); os.makedirs(os.path.join(SITE, 'img'), exist_ok=True)
 INC, BLOCKS = build()
 import time
 VER = time.strftime('%Y%m%d%H%M')
@@ -33,7 +33,7 @@ def img_file(name, w, q=70):
     out = os.path.join(SITE, 'img', f'{name}-{w}.webp')
     if not os.path.exists(out):
         im.save(out, 'WEBP', quality=q, method=4)
-    _done[key] = (f'/img/{name}-{w}.webp', im.width)
+    _done[key] = (f'img/{name}-{w}.webp', im.width)
     return _done[key]
 def img_tag(name, maxw, q=70, pos='center', eager=False, sizes=None, alt=''):
     srcw = ImageOps.exif_transpose(Image.open(_src(name))).width
@@ -142,6 +142,7 @@ SITE_EXTRA_CSS = r"""
 """
 SITE_JS = r"""
 (function(){
+  if(/github\.io$/.test(location.hostname)){ document.querySelectorAll('a.out').forEach(function(a){a.remove()}); }
   document.querySelectorAll('.cmp').forEach(function(c){
     var r=c.querySelector('input[type=range]'), b=c.querySelector('.b'), h=c.querySelector('.hd');
     function set(v){ b.style.clipPath='inset(0 '+(100-v)+'% 0 0)'; h.style.left=v+'%'; }
@@ -163,8 +164,10 @@ SITE_JS = r"""
 FAVICON = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#0F2B46"/><circle cx="32" cy="30" r="11" fill="#C9A86A"/><path d="M12 50h40" stroke="#1C7293" stroke-width="5" stroke-linecap="round"/></svg>'
 # ------------------------------------------------------------------ contenido
 parts = []
-NAV = '<nav class="nav"><div class="in"><a class="brand" href="/"><small>Casasole LP</small>Amberjack 2026</a><a href="/#programas">Programas</a><a href="/#numeros">Números</a><a href="/#cap1">Imagen</a><a href="/#cap2">Alberca</a><a href="/#cap3">Lluvias</a><a href="/#cap4">Seguridad</a><a href="/#cap5">Unidades</a><a href="/#cap6">Exterior</a><a href="/#cap7">Huéspedes</a><a href="/#cap8">Octubre</a><a href="/#cap9">Lo que sigue</a><a href="/unidades">Por unidad</a><a class="out" href="/logout">Salir</a></div></nav>'
-def head(title, desc):
+def nav(home):
+    h = '' if home else 'index.html'
+    return (f'<nav class="nav"><div class="in"><a class="brand" href="{h or "#top"}"><small>Casasole LP</small>Amberjack 2026</a><a href="{h}#programas">Programas</a><a href="{h}#numeros">Números</a><a href="{h}#cap1">Imagen</a><a href="{h}#cap2">Alberca</a><a href="{h}#cap3">Lluvias</a><a href="{h}#cap4">Seguridad</a><a href="{h}#cap5">Unidades</a><a href="{h}#cap6">Exterior</a><a href="{h}#cap7">Huéspedes</a><a href="{h}#cap8">Octubre</a><a href="{h}#cap9">Lo que sigue</a><a href="unidades.html">Por unidad</a><a class="out" href="logout">Salir</a></div></nav>')
+def head(title, desc, home=True):
     return f"""<!doctype html>
 <html lang="es">
 <head>
@@ -176,11 +179,11 @@ def head(title, desc):
 <meta name="description" content="{desc}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Inter:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="/css/site.css?v={VER}">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/site.css?v={VER}">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 </head>
 <body>
-{NAV}
+{nav(home)}
 """
 parts.append(head('Amberjack 2026 · Casasole', 'Programa de renovación y operación de Amberjack 1–8, junio a septiembre de 2026 y octubre en curso.'))
 parts.append(f"""<header class="band hero" id="top"><div class="in hero-grid">
@@ -517,7 +520,7 @@ def inc_block(v):
         th = f'<div class="thumbs">{"".join(cells)}</div>'
     return f'<div class="apx-inc">{hd}{ds}{th}</div>'
 parts_index = parts
-parts = [head('Por unidad · Amberjack 2026', 'Todos los trabajos de Amberjack 1–8 con sus fotos, por unidad.')]
+parts = [head('Por unidad · Amberjack 2026', 'Todos los trabajos de Amberjack 1–8 con sus fotos, por unidad.', home=False)]
 parts.append('<section class="cap" id="anexo"><div class="in cap-body" style="padding-top:40px"><div class="cap-head"><div class="num">Anexo</div><h2>Todos los trabajos, por unidad</h2><p class="intro">Cada trabajo registrado de junio al 16 de octubre, con todas sus fotos tal como se subieron a la bitácora. <span class="pill p-programar" style="background:var(--sandbg);color:var(--sand)">A</span> antes, <span class="pill p-proceso">D</span> después. Los trabajos que abarcan varias unidades aparecen en la primera de ellas.</p></div><div class="filters" id="filters"><button type="button" data-unit="all" aria-pressed="true">Todas</button>' + ''.join(f'<button type="button" data-unit="{u}" aria-pressed="false">{u if u != "COMUN" else "Áreas comunes"}</button>' for u in UNITS + ['COMUN']) + '</div><div id="apx">')
 firstu = True
 for u in UNITS + ['COMUN']:
@@ -530,8 +533,8 @@ for u in UNITS + ['COMUN']:
     parts.append(f'<div class="sum">{len(vs)} trabajos · {nc} cerrados · {nf} fotos</div>' + ''.join(inc_block(v) for v in vs) + '</div>')
 
 parts.append('</div></div></section>')
-FOOTER = f"""<footer class="band"><div class="in"><div><b>Wanderhaus</b>Administración y mantenimiento de Amberjack 1–8 para Casasole LP</div><div>Datos y fotos: bitácora de mantenimiento, corte al 16 de octubre de 2026.<br>Este informe se actualiza cada mes en esta misma dirección. <a href="/logout" style="color:inherit">Cerrar sesión</a></div></div></footer>
-<script src="/js/site.js?v={VER}" defer></script>
+FOOTER = f"""<footer class="band"><div class="in"><div><b>Wanderhaus</b>Administración y mantenimiento de Amberjack 1–8 para Casasole LP</div><div>Datos y fotos: bitácora de mantenimiento, corte al 16 de octubre de 2026.<br>Este informe se actualiza cada mes en esta misma dirección. <a class="out" href="logout" style="color:inherit">Cerrar sesión</a></div></div></footer>
+<script src="js/site.js?v={VER}" defer></script>
 </body></html>"""
 parts_anexo = parts + [FOOTER]
 parts_index = parts_index + [FOOTER]

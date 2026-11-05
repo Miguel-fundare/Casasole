@@ -4,13 +4,20 @@ Sitio privado (usuario y contraseña) con el programa de renovación y operació
 Se publica en **Cloudflare Pages** desde este repositorio: cada vez que se sube un cambio a `main`, el sitio se actualiza solo en uno o dos minutos.
 
 ```
-site/        ← el sitio (lo que se publica): index.html, unidades.html, css/, js/, img/ (fotos en WebP)
+docs/        ← el sitio (lo que se publica): index.html, unidades.html, css/, js/, img/ (fotos en WebP)
 functions/   ← pantalla de acceso y control de sesión (Cloudflare Pages Functions)
 build/       ← scripts y datos con los que se genera el sitio desde la bitácora de Airtable
 archivo/     ← presentación anterior (junio 2026)
 ```
 
-## Publicar por primera vez (10 minutos)
+## Versión provisional sin contraseña (GitHub Pages, 1 minuto)
+
+Mientras se configura Cloudflare, el sitio se puede ver en `https://miguel-fundare.github.io/Casasole/`:
+Settings → Pages → *Build and deployment* → Source: *Deploy from a branch* → Branch: `main`, carpeta `/docs` → Save.
+Queda en línea en uno o dos minutos. **Esa dirección no pide contraseña** (cualquiera con el link la abre; no aparece en Google).
+Para apagarla: Settings → Pages → *Unpublish site*.
+
+## Publicar con contraseña y dominio (Cloudflare Pages, 10 minutos)
 
 1. **GitHub.** Este repositorio debe ser **privado**: Settings → General → Danger Zone → *Change visibility* → Private.
 2. **Cloudflare.** Crea una cuenta gratis en cloudflare.com (o entra a la que ya tengas).
@@ -18,7 +25,7 @@ archivo/     ← presentación anterior (junio 2026)
    - Production branch: `main`
    - Framework preset: `None`
    - Build command: *(vacío)*
-   - Build output directory: `site`
+   - Build output directory: `docs`
    - *Save and Deploy*. En un minuto tienes el sitio en `casasole-xxx.pages.dev`, ya con pantalla de acceso.
 4. **Cuentas.** En el proyecto: Settings → Environment variables → Production → *Add variable*, las dos como **Secret** (Encrypt):
    - `AUTH_USERS` → las cuentas, separadas por punto y coma: `socio1:Clave-Segura-1;socio2:Clave-Segura-2`
