@@ -206,15 +206,15 @@ parts.append(f"""<header class="band hero" id="top"><div class="in hero-grid">
 <section class="antecedente" id="antecedente"><div class="in">
   <p class="kicker">Antecedente</p>
   <h2>Por qué cambió la forma de operar</h2>
-  <p class="lead">Hasta la primavera de 2026 el mantenimiento de Amberjack dependía de una sola persona, sin registro de lo que se hacía ni de lo que se gastaba. Los incumplimientos y las quejas de huéspedes se fueron acumulando, y en <b>mayo de 2026</b> se tomó la decisión de terminar esa relación y rehacer el programa de mantenimiento desde cero: ejecución inmediata, proveedores profesionales, evidencia de cada trabajo y control por medio de tecnología. <b>Este es el primer informe bajo el nuevo esquema.</b></p>
+  <p class="lead">Hasta la primavera de 2026 el mantenimiento de Amberjack dependía de un encargado que se negaba a rendir cuentas: no reportaba lo que hacía, no tomaba fotos y no presentaba recibos. Los incumplimientos y las quejas de huéspedes se fueron acumulando, y en <b>mayo de 2026</b> se tomó la decisión de terminar esa relación y rehacer el programa de mantenimiento desde cero: ejecución inmediata, proveedores profesionales, evidencia de cada trabajo y control por medio de tecnología. <b>Este es el primer informe bajo el nuevo esquema.</b></p>
   <div class="aa">
     <div class="antes"><h3>Antes<small>hasta mayo de 2026</small></h3><ul>
-      <li>Un solo encargado interno, sin supervisión ni bitácora.</li>
+      <li>Un encargado de mantenimiento que se negaba a rendir cuentas: no reportaba, no tomaba fotos y no presentaba recibos.</li>
       <li>Los reportes de huéspedes no tenían fecha de atención ni de cierre; muchos se quedaban sin resolver.</li>
       <li>Compras y gastos sin comprobante, sin cotización y sin comparar proveedores.</li>
       <li>Reparaciones sin evidencia: no había forma de saber qué se hizo ni cómo quedó.</li>
       <li>Sin garantías sobre el trabajo ni sobre los equipos instalados.</li>
-      <li>Los socios se enteraban por las quejas, no por un informe.</li>
+      <li>Quejas repetidas de huéspedes por fallas que no se atendían.</li>
     </ul></div>
     <div class="ahora"><h3>Ahora<small>desde mayo de 2026</small></h3><ul>
       <li><b>Todo queda registrado.</b> Cada reporte entra a la bitácora (Airtable) con unidad, fecha, quién lo reportó y urgencia; se asigna a un responsable y se cierra con fecha.</li>
