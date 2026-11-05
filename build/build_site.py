@@ -166,7 +166,7 @@ FAVICON = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect wid
 parts = []
 def nav(home):
     h = '' if home else 'index.html'
-    return (f'<nav class="nav"><div class="in"><a class="brand" href="{h or "#top"}"><small>Casasole LP</small>Amberjack 2026</a><a href="{h}#programas">Programas</a><a href="{h}#numeros">Números</a><a href="{h}#cap1">Imagen</a><a href="{h}#cap2">Alberca</a><a href="{h}#cap3">Lluvias</a><a href="{h}#cap4">Seguridad</a><a href="{h}#cap5">Unidades</a><a href="{h}#cap6">Exterior</a><a href="{h}#cap7">Huéspedes</a><a href="{h}#cap8">Octubre</a><a href="{h}#cap9">Lo que sigue</a><a href="unidades.html">Por unidad</a><a class="out" href="logout">Salir</a></div></nav>')
+    return (f'<nav class="nav"><div class="in"><a class="brand" href="{h or "#top"}"><small>Casasole LP</small>Amberjack 2026</a><a href="{h}#antecedente">Antecedente</a><a href="{h}#programas">Programas</a><a href="{h}#numeros">Números</a><a href="{h}#cap1">Imagen</a><a href="{h}#cap2">Alberca</a><a href="{h}#cap3">Lluvias</a><a href="{h}#cap4">Seguridad</a><a href="{h}#cap5">Unidades</a><a href="{h}#cap6">Exterior</a><a href="{h}#cap7">Huéspedes</a><a href="{h}#cap8">Octubre</a><a href="{h}#cap9">Lo que sigue</a><a href="unidades.html">Por unidad</a><a class="out" href="logout">Salir</a></div></nav>')
 def head(title, desc, home=True):
     return f"""<!doctype html>
 <html lang="es">
@@ -189,7 +189,7 @@ parts.append(head('Amberjack 2026 · Casasole', 'Programa de renovación y opera
 parts.append(f"""<header class="band hero" id="top"><div class="in hero-grid">
   <div>
     <p class="kicker">Informe para los socios · Amberjack 1–8, South Padre Island</p>
-    <h1>Programa de renovación y operación 2026</h1>
+    <h1>Programa de mantenimiento, renovación y operación 2026</h1>
     <p class="sub">Todo lo que se hizo en la propiedad de junio a septiembre, y lo que va de octubre, contado con las fotos de antes y después que tomó el equipo en sitio.</p>
     <p class="meta"><b>Wanderhaus LLC</b> · administración y mantenimiento · corte al 16 de octubre de 2026</p>
   </div>
@@ -202,6 +202,31 @@ parts.append(f"""<header class="band hero" id="top"><div class="in hero-grid">
   <div class="kpi"><b>{fotos_tot}</b><span>fotos de antes y después en la bitácora</span></div>
 </div></div></header>
 <div class="after-hero"></div>
+
+<section class="antecedente" id="antecedente"><div class="in">
+  <p class="kicker">Antecedente</p>
+  <h2>Por qué cambió la forma de operar</h2>
+  <p class="lead">Hasta la primavera de 2026 el mantenimiento de Amberjack dependía de una sola persona, sin registro de lo que se hacía ni de lo que se gastaba. Los incumplimientos y las quejas de huéspedes se fueron acumulando, y en <b>mayo de 2026</b> se tomó la decisión de terminar esa relación y rehacer el programa de mantenimiento desde cero: ejecución inmediata, proveedores profesionales, evidencia de cada trabajo y control por medio de tecnología. <b>Este es el primer informe bajo el nuevo esquema.</b></p>
+  <div class="aa">
+    <div class="antes"><h3>Antes<small>hasta mayo de 2026</small></h3><ul>
+      <li>Un solo encargado interno, sin supervisión ni bitácora.</li>
+      <li>Los reportes de huéspedes no tenían fecha de atención ni de cierre; muchos se quedaban sin resolver.</li>
+      <li>Compras y gastos sin comprobante, sin cotización y sin comparar proveedores.</li>
+      <li>Reparaciones sin evidencia: no había forma de saber qué se hizo ni cómo quedó.</li>
+      <li>Sin garantías sobre el trabajo ni sobre los equipos instalados.</li>
+      <li>Los socios se enteraban por las quejas, no por un informe.</li>
+    </ul></div>
+    <div class="ahora"><h3>Ahora<small>desde mayo de 2026</small></h3><ul>
+      <li><b>Todo queda registrado.</b> Cada reporte entra a la bitácora (Airtable) con unidad, fecha, quién lo reportó y urgencia; se asigna a un responsable y se cierra con fecha.</li>
+      <li><b>Se atiende de inmediato y se mide.</b> {mismo_dia} de {len(dias)} trabajos cerrados se resolvieron el mismo día; el tiempo de respuesta queda registrado en cada caso.</li>
+      <li><b>Evidencia obligatoria.</b> Fotos de antes y después de cada trabajo: {fotos_tot} en este periodo.</li>
+      <li><b>Trabajo externo y profesional.</b> Handyman por jornadas registradas, servicio de alberca con reporte en cada visita, y para reparaciones mayores se cotiza con varios proveedores antes de aprobar.</li>
+      <li><b>Garantías.</b> Los equipos nuevos se compran con garantía del fabricante (la bomba de la alberca, dos años) y cada proveedor responde por su trabajo.</li>
+      <li><b>Transparencia.</b> Este informe se actualiza cada mes en la misma dirección y los socios tienen acceso permanente a todos los trabajos y sus fotos.</li>
+    </ul></div>
+  </div>
+  <p class="cierre">Lo que sigue en este informe es el resultado de ese cambio: lo que se hizo de junio a septiembre, programa por programa, y lo que va de octubre.</p>
+</div></section>
 <section class="programs" id="programas"><div class="in">
   <p class="kicker">Lo que se hizo, por programa</p>
   <h2>Ocho programas, un verano</h2>

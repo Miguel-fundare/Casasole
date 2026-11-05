@@ -12,7 +12,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 img{max-width:100%}
 a{color:var(--teal)}
 h1,h2,h3,h4{font-family:var(--f-display);color:var(--head);margin:0;letter-spacing:0;text-wrap:balance;font-weight:500}
-h1{font-size:clamp(36px,5.4vw,60px);line-height:1.02;max-width:20ch}
+h1{font-size:clamp(32px,4.6vw,52px);line-height:1.04;max-width:22ch}
 h2{font-size:clamp(28px,3.8vw,40px);line-height:1.08;margin:0 0 8px}
 h3{font-size:23px;line-height:1.25}
 h4{font-size:17px;margin:0 0 4px}
@@ -183,6 +183,23 @@ table.hu td.r{width:130px}
 footer.band{margin-top:72px;padding-block:40px 44px}
 footer .in{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:13.5px;color:var(--onnavy2)}
 footer b{display:block;font-family:var(--f-display);font-size:22px;font-weight:500;color:var(--onnavy);margin-bottom:4px}
+/* antecedente: antes / ahora */
+.antecedente{padding-block:64px 8px}
+.antecedente .lead{font-size:17.5px;line-height:1.55;max-width:66ch;color:var(--fg);margin:12px 0 26px}
+.aa{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.aa>div{min-width:0;background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:20px 22px 10px}
+.aa h3{font-family:var(--f-text);font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding-bottom:10px;border-bottom:2px solid var(--sand);margin-bottom:6px;color:var(--head)}
+.aa h3 small{display:block;font-weight:400;letter-spacing:0;text-transform:none;color:var(--muted);font-size:13px;margin-top:4px}
+.aa .ahora h3{border-bottom-color:var(--teal)}
+.aa ul{list-style:none;margin:0;padding:0}
+.aa li{padding:11px 0 11px 26px;border-bottom:1px solid var(--rule);font-size:15px;line-height:1.45;position:relative}
+.aa li:last-child{border-bottom:0}
+.aa li::before{content:"";position:absolute;left:2px;top:19px;width:10px;height:10px;border-radius:50%;background:var(--sand)}
+.aa .ahora li::before{background:var(--teal)}
+.aa li b{color:var(--head);font-weight:600}
+.antecedente .cierre{margin-top:22px;font-size:15px;color:var(--muted);max-width:70ch}
+@media (max-width:720px){.aa{grid-template-columns:1fr}.antecedente{padding-block:48px 4px}}
+
 @media (max-width:860px){
   .cards{grid-template-columns:repeat(2,1fr)}
   .team{grid-template-columns:repeat(2,1fr)}
