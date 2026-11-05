@@ -31,6 +31,10 @@ def build():
                       f_rep=x.get(F['f_rep']), f_cierre=x.get(F['f_cierre']), f_asig=x.get(F['f_asig']),
                       proveedor=nm(x.get(F['proveedor'])) or [], horas=x.get(F['horas']), evidencia=x.get(F['evidencia']),
                       t_res=x.get(F['t_res']), cap=ID2CAP.get(i), fotos=[])
+    # Estatus confirmados por Melany el 4-nov-2026 (Airtable aún no actualizado):
+    OVERRIDE = {210: 'Terminado', 368: 'Terminado', 266: 'Terminado'}
+    for i, st in OVERRIDE.items():
+        if i in INC: INC[i]['estatus'] = st
     # fotos directas
     for p in sorted(glob.glob(os.path.join(S, 'fotos_all', '*.jpg'))):
         b = os.path.basename(p)[:-4]; i = int(b.split('_')[0])

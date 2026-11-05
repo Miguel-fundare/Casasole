@@ -238,7 +238,7 @@ parts.append(f"""<header class="band hero" id="top"><div class="in hero-grid">
    {card('cap4','04','Seguridad y accesos','Detectores, timbres Ring y chapas.','455_despues_01','center 40%')}
    {card('cap5','05','Dentro de las unidades','Clima, cocina, baños, muebles y luz.','226_despues_01')}
    {card('cap6','06','Exterior y limpieza','Cerca hidrolavada, pisos, jardín y fumigación.','443_despues_04')}
-   {card('cap7','07','Atención al huésped','{n_huesped} reportes de huéspedes y cuánto tardó cada uno.','182_despues_01')}
+   {card('cap7','07','Atención al huésped',f'{n_huesped} reportes de huéspedes y cuánto tardó cada uno.','182_despues_01')}
    {card('cap8','08','Octubre, en curso','Calentador del jacuzzi y reparación por lluvias.','462_despues_02_p04_03')}
   </div>
 </div></section>
@@ -366,14 +366,14 @@ parts.append(cap_head(4, 'Seguridad y accesos',
  'Tres frentes: que cada unidad tenga detectores de humo y monóxido vigentes, que la entrada tenga cámara, y que las chapas y llaves funcionen a la primera, tanto para huéspedes como para el equipo de limpieza.'))
 parts.append(proj('Detectores de humo y monóxido, programa de reemplazo', 'Julio–agosto · 8 unidades',
  ['Los detectores del edificio cumplieron diez años, que es su vida útil. Se compraron nueve detectores combinados (humo y monóxido, cableados con batería de respaldo de 10 años) para reemplazar los de todas las unidades.',
-  'Se instalaron en AMB-02, 03, 05, 06 y 07; en AMB-01, donde el detector sonaba intermitente, está comprado y pendiente de instalar.'],
+  'Se instalaron en AMB-01 (donde el detector sonaba intermitente), 02, 03, 05, 06 y 07; faltan AMB-04 y 08.'],
  pair('252_antes_01', '252_despues_01', 'Base cableada del detector viejo y el detector combinado nuevo instalado.'),
  first=True,
  wide=strip([('252_antes_02', 'Nueve detectores, listos para instalar'), ('252_despues_02', 'Instalado y en prueba'), ('252_despues_03', 'Cajas de los reemplazados')], cols=3)))
 parts.append(proj('Timbres Ring con cámara en las ocho entradas', 'Agosto–septiembre · 8 unidades · Beto',
  ['Los timbres anteriores (Nest blancos, ya sin servicio) se sustituyeron por Ring con cámara, negros. Permiten ver quién llega, hablar con el huésped si se queda afuera y tener registro de entradas. Se instalaron entre el 2 de agosto y el 7 de septiembre.'],
  cmp('434_antes_01', '434_despues_01', 'AMB-08: el botón anterior y el Ring con cámara instalado en el mismo punto (7 de septiembre).'),
- wide=strip([('455_despues_01', 'Ring en operación'), ('434_despues_01', 'AMB-08'), ('455_antes_01', 'Alta en la app Ring')], cols=3, sq=True, cap='Según la bitácora hay Ring en siete entradas y falta el de AMB-05. Las fotos del Ring instalado en cada unidad se agregan en la siguiente versión; las que estaban cargadas mostraban el timbre anterior.')))
+ wide=strip([('455_despues_01', 'Ring en operación'), ('434_despues_01', 'AMB-08'), ('455_antes_01', 'Alta en la app Ring')], cols=3, sq=True, cap='Ring con cámara en siete de las ocho entradas; falta el de AMB-05.')))
 parts.append(proj('Chapas, bisagras y llaves', 'Julio–octubre · varias unidades · Beto',
  ['Se arreglaron o cambiaron chapas en AMB-01, 03, 05, 06 y 08 (una de baño que se zafaba, una principal que se batallaba para abrir, la caja de llaves de AMB-08, bisagras caídas).',
   'En octubre se cambiaron las chapas de AMB-01, 03 y 06 por juegos nuevos de cerradura y manija, y se sacaron copias de llaves para el equipo.'],
@@ -387,7 +387,7 @@ parts.append(cap_head(5, 'Dentro de las unidades',
 parts.append('<h3>Clima</h3><div class="gal">' +
  pair('377_antes_05', '377_despues_06', 'Filtros de aire acondicionado saturados: se cambiaron en AMB-01, 02, 05 y 06 el 1 de agosto y en AMB-03 y AMB-05 el 18.') +
  pair('182_antes_01', '182_despues_01', 'AMB-01: un huésped escribió que el termostato no bajaba de 82 °F. Se atendió el mismo día (pilas) y, al repetirse en octubre, se cambió el termostato.') +
- pair('368_antes_01', '368_despues_01', 'AMB-07: la pantalla del termostato no mostraba nada; pilas nuevas y de vuelta a 77 °F.') +
+ pair('368_antes_01', '368_despues_01', 'AMB-07: la pantalla del termostato no mostraba nada; pilas nuevas y de vuelta a 77 °F. En octubre se cambió el equipo y se le dio mantenimiento; ya enfría bien.') +
  pair('401_antes_02', '401_despues_01', 'AMB-04: el clima tiraba agua porque el drenaje del condensado estaba tapado; se destapó y corrigió la salida (30 de agosto).') +
  '</div>')
 parts.append('<h3 style="margin-top:30px">Cocina y electrodomésticos</h3><div class="gal">' +
@@ -395,7 +395,7 @@ parts.append('<h3 style="margin-top:30px">Cocina y electrodomésticos</h3><div c
  pair('222_antes_01', '222_despues_03', 'Secadoras: pelusa acumulada en el ducto y el filtro, un riesgo de incendio. Se limpiaron en AMB-01, 03, 04 y 05.') +
  pair('307_antes_01', '307_despues_02', 'AMB-02: los sartenes rayados se reemplazaron por un juego nuevo y se reacomodó la cocina.') +
  pair('304_antes_01', '304_despues_01', 'AMB-04: la puerta del refrigerador estaba floja; se ajustó el herraje.') +
- '</div>' + strip([('225_antes_01', 'AMB-03: microondas'), ('225_despues_01', 'Limpio y probado'), ('229_despues_01', 'AMB-07/08: lavavajillas revisados'), ('469_antes_01', 'AMB-07: pieza de lavavajillas'), ('469_despues_01', 'Repuesta'), ('227_despues_02', 'AMB-05/06: refrigeradores revisados')], cols=6))
+ '</div>' + strip([('225_antes_01', 'AMB-03: microondas'), ('225_despues_01', 'Limpio y probado'), ('229_despues_01', 'AMB-07/08: lavavajillas revisados'), ('469_antes_02', 'AMB-07: pieza del lavavajillas rota'), ('469_despues_01', 'Repuesta'), ('227_despues_02', 'AMB-05/06: refrigeradores revisados')], cols=6))
 parts.append('<h3 style="margin-top:30px">Baños</h3><div class="gal">' +
  cmp('226_antes_08', '226_despues_01', 'AMB-05: el lavamanos tenía los anclajes oxidados y la mezcladora vieja; se instaló lavamanos y llave Moen nuevos (2 de agosto).') +
  pair('386_antes_01', '386_despues_01', 'AMB-01: el riel de la puerta de la regadera no corría; se cambiaron rodillos y guías (25 de agosto).') +
@@ -451,7 +451,6 @@ parts.append('<div class="gal" style="margin-top:26px">' +
  pair('182_antes_02', '182_despues_02', 'AMB-01, 11 de septiembre: “the thermostat has no temp set”. Beto fue ese mismo día y el termostato volvió a responder.') +
  pair('411_antes_03', '335_despues_08_p09_06', 'Finales de julio: un huésped avisó que la alberca estaba sucia. Se cambió el filtro, se trató el agua y así quedó para la siguiente llegada.') +
  '</div>')
-parts.append('<div class="nota sand"><b>Mensajes, reseñas y tiempos de respuesta.</b> Esta sección se completa con los datos de Airbnb del periodo (conversaciones atendidas, tasa y tiempo de respuesta, calificación y reseñas por mes). Se integran en la siguiente versión del informe.</div>')
 parts.append('</div></section>')
 
 # CAPÍTULO 8 · OCTUBRE
@@ -470,7 +469,7 @@ parts.append(proj('Lluvias de octubre: AMB-01, AMB-03 y AMB-05', '5–12 de octu
  wide=strip([('451_antes_14', 'Techo desprendido'), ('451_despues_06', 'Resanado'), ('451_antes_18', 'Moldura con agua'), ('451_despues_07', 'Sellada'), ('451_antes_19', 'Junta abierta en el marco'), ('451_despues_02', 'Sellada')], cols=6) +
       strip([('451_antes_22', 'Pared descascarada'), ('451_despues_10', 'Pintada'), ('451_antes_05', 'Marco de ventana, antes'), ('451_despues_04', 'Después'), ('451_antes_09', 'Techo manchado'), ('451_despues_09', 'Recámara terminada')], cols=6)))
 parts.append(proj('Y lo demás de octubre', '1–16 de octubre',
- ['Máquina de limpieza de fondo para la alberca y limpieza tras las lluvias; chapas nuevas en AMB-01, 03 y 06; moho en la recámara principal de AMB-06 limpiado y sellado; corte de pasto y limpieza de exteriores; riel de regadera en AMB-04; bisagra en AMB-06; focos en AMB-01; faroles exteriores terminados.',
+ ['Máquina de limpieza de fondo para la alberca y limpieza tras las lluvias; chapas nuevas en AMB-01, 03 y 06; moho en la recámara principal de AMB-06 limpiado y sellado; corte de pasto y limpieza de exteriores; riel de regadera en AMB-04; bisagra en AMB-06; focos en AMB-01; faroles exteriores terminados; equipo de clima de AMB-07 cambiado y con mantenimiento; detector de humo de AMB-01 instalado.',
   'Pendientes al 16 de octubre: cambiar los aspersores de riego (corroídos), manguera nueva, soporte de cama en AMB-06, extractor de cocina en AMB-06 y reconectar los timbres Ring al internet.'],
  pair('467_antes_04', '467_despues_04', 'AMB-06: moho en la esquina de la recámara principal; limpiado, sellado y pintado (15 de octubre).'),
  wide=strip([('457_antes_02', 'Alberca tras las lluvias'), ('457_despues_02', 'Aspirada'), ('454_despues_01', 'AMB-03: chapa nueva'), ('463_despues_01', 'AMB-04: riel de regadera'), ('460_antes_05', 'Aspersores corroídos (pendiente)'), ('453_despues_01', 'Patio lavado (10 oct)')], cols=6)))
@@ -485,7 +484,7 @@ def pill(v):
 NOTAS = {1: 'Panel eléctrico de la alberca, corroído. La energía está restablecida; Blue Creek recomienda reemplazarlo antes de la próxima temporada. Requiere aprobación.',
  201: 'Sofá cama de AMB-04 quebrado; requiere reemplazo. Falta elegir modelo y aprobar.', 183: 'Colchón de AMB-01 hundido; conviene cambiar la base (box). Falta aprobar.',
  231: 'Dos bases de cama twin de AMB-01: compradas, falta armarlas e instalarlas.',
- 210: 'Detector de AMB-01: comprado, falta instalarlo.', 252: 'Detectores: instalados en cinco unidades; completar AMB-01, 04 y 08.',
+ 210: 'Detector de AMB-01: comprado, falta instalarlo.', 252: 'Detectores: instalados en seis unidades; completar AMB-04 y 08.',
  450: 'Biseles de luces de pasillo: siete colocados, faltan piezas por llegar.', 182: 'Termostato de AMB-01 cambiado en octubre; verificar que enfríe bien.', 368: 'Termostato de AMB-07: sigue sin enfriar bien; revisar el equipo.',
  311: 'Persianas de AMB-05: falta comprar las de la medida correcta.', 195: 'Microondas de AMB-08 echa humo y el extractor falla; revisar o reemplazar.', 376: 'Piezas del refrigerador de AMB-02 (rejilla); pedir repuesto.',
  303: 'Microondas de AMB-04, viejo; cotizar reemplazo.', 258: 'Cubierta de cocina de AMB-07 por reemplazar.', 419: 'Limpieza profunda de sillones en cinco unidades; programar.', 460: 'Aspersores de riego corroídos; cambiar.',
